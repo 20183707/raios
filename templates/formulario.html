@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/menu.css') }}">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+       <form method="POST" action="{{url_for('procesar')}}">
+        <input name="nombre" required type="text" placeholder="Nombre">
+        <br><br>
+        <input name="edad" required type="number" placeholder="Edad">
+        <br><br>
+        <input type="submit" value="Enviar">
+    </form>
+    </div>
+
+
+
+
+
+</body>
+</html>

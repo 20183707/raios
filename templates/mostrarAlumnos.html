@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename= 'css/cajas.css') }}">
+        <title>Mi pagina web</title>
+    </head>
+
+
+    <body>
+
+        <div class="header">}
+            {% include 'menu.html' %}
+        </div>
+
+
+        <!-- Inicia div del buscador -->
+        <div class="buscador">
+            <form method="POST" action="{{url_for('procesarAlumnos')}}">
+
+                <input type="text" name="nombre" class="input_buscar" placeholder="¿Qué buscas?">
+                <button type="submit" class="btn_buscar" > <img src="/static/css/1.png" height ="32" width="32" /></button>
+
+
+            </form>
+        </div>
+
+
+
+
+
+
+        <!-- Inicio del div lateral -->
+        <div class="lateral">
+            {% for  i in range(3): %}
+                <button class="btn_lateral" onclick="location.href='https://www.google.com/'"> {{buscar}}  </button>
+            {% endfor %}
+        </div>
+        <!-- Fin del div lateral -->
+
+
+
+
+
+        <!-- Inicio del div centro -->
+        <div class="centro">
+
+           <!-- Ciclo para recorrer la lista de nombres en html -->
+             {% for fila in recuperar: %}
+
+                <div class="productos" onclick="location.href='{{ fila[1][0][0]}}'">
+                    <h3> Palabra: {{fila[0][:]}} , Frecuencia: {{fila[1][0][2]}} </h3>
+                    <h3> Idioma: {{fila[1][0][1]}}</h3>
+                    <h3> URL: {{fila[1][0][0]}}</h3>
+
+                </div>
+            {% endfor %}
+
+
+
+        </div>
+        <!-- Fin del div centro -->
+
+
+    </body>
+</html>
